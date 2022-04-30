@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
+        <script>
+        // reports.json will go here
+        const ALL_REPORTS = JSON.parse(atob(`%s`));
+        </script>
+        <style>
+body {
+  direction: rtl
+}
+        </style>
+    </head>
+    <body>
+        <h1>חפשו כדי לגלות מתי יגיע האוכל שלכם!</h1>
+        <input id="pattern"></input>
+        <div id="chart"/>
+        <script>
+// index.js will go here
+%s
+        </script>
+    </body>
+</html>
