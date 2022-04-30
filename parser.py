@@ -95,7 +95,6 @@ def write_reports_to_json(f: TextIO, reports: Iterable[ArrivalReport]) -> None:
             {
                 "date": str(r.date),
                 "time": str(r.time),
-                "timef": r.time.hour + r.time.minute / 60,
                 "resturaunts": r.resturaunts,
             }
             for r in reports
