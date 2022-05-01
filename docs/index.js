@@ -20,6 +20,7 @@ function search(reports, patterns) {
 function onSearch(patterns) {
   const searchResults = search(state.allReports, patterns);
   updateChart(searchResults);
+  updateStats(searchResults);
 }
 
 const resultToTrace = ({ pattern, reports }) => ({
@@ -33,7 +34,34 @@ const resultToTrace = ({ pattern, reports }) => ({
 function updateChart(searchResults) {
   Plotly.react(CHART, searchResults.map(resultToTrace), LAYOUT, CONFIG);
 }
+
+function updateStats(searchResults) {
+  for (const oldRow of [...STATS_BODY.childNodes]) {
+    STATS_BODY.removeChild(oldRow);
+  }
+  for (const { pattern, reports } of searchResults) {
+    const row = document.createElement('tr');
+    const stats = calculateStats(reports);
+    for (const cellContent of [pattern || 'הכל', ...Object.values(stats)]) {
+      const cell = document.createElement('td');
+      cell.textContent = cellContent;
+      row.appendChild(cell);
+    }
+    STATS_BODY.appendChild(row);
+  }
+}
+function calculateStats(reports) {
+  const times = reports
+    .map((report) => report.time.replace(/:\d\d$/, ''))
+    .sort();
+  return {
+    median: times[Math.floor(times.length * 0.5)],
+    p75: times[Math.floor(times.length * 0.75)],
+  };
+}
+
 const CHART = document.getElementById('chart');
+const STATS_BODY = document.getElementById('stats-body');
 const LAYOUT = {
   title: 'מתי דיווחו על הגעה?',
   showlegend: true,

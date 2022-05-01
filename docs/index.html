@@ -17,7 +17,13 @@ body {
 }
 /* Fight tailwind making all svgs display:block */
 .plotly svg {
-    display: unset;
+  display: unset;
+}
+#stats tr > * {
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0em .25em;
+  min-width: 6em;
 }
         </style>
     </head>
@@ -29,6 +35,16 @@ body {
                     <select id="restaurant-dropdown" class="js-example-basic-multiple" name="states[]" multiple="multiple"></select>
                     <div id="chart"/>
                 </div>
+                <table id="stats" class="table-auto mx-auto text-center">
+                    <thead>
+                        <tr class="bg-gray-20">
+                            <th>מסעדה</th>
+                            <th>חציון</th>
+                            <th>75%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stats-body"/>
+                </table>
             </div>
         </div>
         <a target="_blank" class="block underline mx-auto mt-10 text-center opacity-40 hover:opacity-80 transition-opacity transition-75" href="https://github.com/yehonatanz/lunch-stats/issues">
