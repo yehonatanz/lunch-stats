@@ -3,6 +3,7 @@
 
 ## What is this?
 A very basic utility to graph lunch arrival times
+![image](https://user-images.githubusercontent.com/12269446/166142029-8a3e7de1-96fa-46a4-8667-42fba7b46cac.png)
 
 ## Why?
 I got sick of guessing when my food delivery will arrive based on gut feeling and decided to utilize a data based approach 🤓
