@@ -5,3 +5,4 @@ __pycache__/
 *.bak
 build/
 .DS_store
+lunch.txt
