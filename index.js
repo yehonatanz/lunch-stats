@@ -1,5 +1,9 @@
 $(document).ready(function () {
-  $('.js-example-basic-multiple').select2();
+  $('.js-example-basic-multiple').select2({
+    createTag: tag => ({ id: tag.term, text: tag.term, tag: true }),
+    multiple: true,
+    tags: true,
+  });
 });
 
 $('#restaurant-dropdown').on('select2:close', function () {
@@ -50,11 +54,10 @@ const LAYOUT = {
 const CONFIG = { scrollZoom: true };
 
 createDropDown(
-uniq(
-  ALL_REPORTS
-    .map(report => report.resturaunts.split(/\s+/))
-    .flat()
-    .map(word => word.trim()),
-),
+  uniq(
+    ALL_REPORTS.map(report => report.resturaunts.split(/\s+/))
+      .flat()
+      .map(word => word.trim()),
+  ),
 );
 Plotly.newPlot(CHART, [reportsToTrace(ALL_REPORTS)], LAYOUT, CONFIG);

@@ -41,7 +41,7 @@ body {
         <script>
 // index.js will go here
 $(document).ready(function () {
-  $('.js-example-basic-multiple').select2();
+  $('.js-example-basic-multiple').select2({createTag: tag => ({id: tag.term, text: tag.term, tag: true}), multiple: true, tags: true});
 });
 
 $('#restaurant-dropdown').on('select2:close', function () {
