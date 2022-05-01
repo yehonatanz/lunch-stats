@@ -23,10 +23,12 @@ The entire thing is packed into a single HTML file for easy offline sharing.
 - Autocompletion in search textbox by existing strings
 - Tags UI for searching multiple resturaunts, instead of separating by commas
 - Percentiles view
+- Mobile support
 - There are more possible improvements, but they will pend for user feedback 😇
 
 ## That's awesome! How can I help?
 - Are you a developer? You're welcome tackle any of the issues in the What's next section!
+- Are you in this WhatsApp group? Make sure to report as quickly as possible and with consistent spelling!
 - Are you in this WhatsApp group for longer than I am? You can export the chat and send it to me so we'll have more historic data!
 - Do you have an idea for a cool feature? Open an issue!
 - Order me lunch!
