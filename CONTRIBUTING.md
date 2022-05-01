@@ -2,20 +2,23 @@
 - `python>=3.8`
 - `make`
 - Basic unix commands
+- lunch.txt - manually export the WhatsApp chat to ./lunch.txt
 
 ## Building
 ```bash
-# Manually export the WhatsApp chat to ./lunch.txt and then:
 make
 ```
 
-All build artifacts reside in `build/`, even intermediate ones.
+## Developing
+```bash
+make dev
+```
 
-The final build artifact is `docs/index.html`, which is served by Github Pages.
+The only build artifact is `docs/reports.json`
 
 ## Project files
 - `parser.py` - converts `lunch.txt` to `reports.json`
-- client side is defined in `index.html` and `index.js`
+- client side is in `docs/index.html` and `docs/index.js` - served by Github Pages
 
 
 ## How to open a PR
