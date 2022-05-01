@@ -1,6 +1,8 @@
 # Lunch Stats
 [Browse on Github Pages](https://yehonatanz.github.io/lunch-stats/)
 
+[How to contribute](./CONTRIBUTING.md)
+
 ## What is this?
 A very basic utility to graph lunch arrival times
 ![image](https://user-images.githubusercontent.com/12269446/166142029-8a3e7de1-96fa-46a4-8667-42fba7b46cac.png)
