@@ -4,10 +4,17 @@ $(document).ready(function() {
 
 $('#restaurant-dropdown').on('select2:close', function () {
   const selectedValues = $('#restaurant-dropdown').select2('data');
-  const values = selectedValues.map(({text})=> text);
-  const traces = values.map(pattern => reportsToTrace(ALL_REPORTS.filter(report => report.resturaunts.toLowerCase().includes(pattern.toLowerCase())), pattern));
-  Plotly.react(CHART, traces, LAYOUT, CONFIG);
+  search(selectedValues.map(({text})=> text));
 });
+
+function uniq(arr) {
+    return [...new Set(arr)].sort();
+}
+
+function search(patterns) {
+  const traces = patterns.map(pattern => reportsToTrace(ALL_REPORTS.filter(report => report.resturaunts.toLowerCase().includes(pattern.toLowerCase())), pattern));
+  Plotly.react(CHART, traces, LAYOUT, CONFIG);
+}
 
 function createDropDown(values) {
   const dropdown = document.getElementById('restaurant-dropdown');
@@ -20,7 +27,7 @@ function createDropDown(values) {
 }
 
 function reportsToTrace(reports, name) {
-  createDropDown(_.uniq(reports.map(x => x.resturaunts)));
+  createDropDown(uniq(reports.map(report => report.resturaunts.split(/\s+/)).flat().map(word => word.trim())));
   return {
     type: 'scatter',
     mode: 'markers',
