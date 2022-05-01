@@ -32,14 +32,6 @@ function createDropDown(values) {
 }
 
 function reportsToTrace(reports, name) {
-  createDropDown(
-    uniq(
-      reports
-        .map(report => report.resturaunts.split(/\s+/))
-        .flat()
-        .map(word => word.trim()),
-    ),
-  );
   return {
     type: 'scatter',
     mode: 'markers',
@@ -57,4 +49,12 @@ const LAYOUT = {
 };
 const CONFIG = { scrollZoom: true };
 
+createDropDown(
+uniq(
+  ALL_REPORTS
+    .map(report => report.resturaunts.split(/\s+/))
+    .flat()
+    .map(word => word.trim()),
+),
+);
 Plotly.newPlot(CHART, [reportsToTrace(ALL_REPORTS)], LAYOUT, CONFIG);
