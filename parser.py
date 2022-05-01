@@ -35,7 +35,7 @@ class Message:
 
 def split_messages(text: str) -> Iterable[Message]:
     matches = PREMABLE_PATTERN.finditer(text)
-    prev = next(matches)
+    prev = next(matches, None)
     if not prev:
         # no matches
         return
