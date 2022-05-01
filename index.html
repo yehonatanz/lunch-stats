@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
         <script>
         // reports.json will go here
         const ALL_REPORTS = JSON.parse(atob(`%s`));
@@ -17,9 +18,15 @@ body {
         </style>
     </head>
     <body>
-        <h1>חפשו כדי לגלות מתי יגיע האוכל שלכם!</h1>
-        <input id="pattern"></input>
-        <div id="chart"/>
+        <div class="container mx-auto pt-4">
+            <div class="rounded overflow-hidden shadow-lg bg-white">
+                <div class="px-6 py-4">
+                    <p class="font-bold text-xl mb-2">חפשו כדי לגלות מתי יגיע האוכל שלכם!</p>
+                    <input type="text" placeholder="שם המסעדה" id="pattern" class="py-1 px-2 outline-none border border-gray-400 rounded bg-white text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"></input>
+                    <div id="chart"/>
+                </div>
+            </div>
+        </div>
         <script>
 // index.js will go here
 %s
