@@ -14,4 +14,4 @@ lunch.txt:
 	exit 1
 
 clean:
-	rm -rf build
+	rm -rf build docs/index.html
