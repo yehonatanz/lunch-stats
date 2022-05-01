@@ -14,6 +14,7 @@ PREMABLE_PATTERN = re.compile(
     r"^(?P<month>\d\d?)/(?P<day>\d\d?)/(?P<year>\d\d), (?P<hour>\d\d):(?P<minute>\d\d) - (?P<author>[^:]+)((: )|$)",
     re.MULTILINE | re.UNICODE,
 )
+PHONE_NUMBER = re.compile(r'\+?972[\d-]+')
 
 
 @dataclass
@@ -75,6 +76,7 @@ VALID_REPORT_CHARACTERS = frozenset(
 
 def sanitize_message_text(text: str) -> str:
     text = text.replace(",", "\n").lower()
+    text = PHONE_NUMBER.sub('redacted-phone', text)
     return "".join(c for c in text if c in VALID_REPORT_CHARACTERS).strip()
 
 

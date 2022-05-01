@@ -1,3 +1,7 @@
+docs/index.html: build/index.html
+	mkdir -p docs
+	cp "$<" "$@"
+
 build/index.html: build/reports.json index.html index.js
 	printf "$$(cat index.html)" "$$(base64 build/reports.json)" "$$(cat index.js)" > $@
 
