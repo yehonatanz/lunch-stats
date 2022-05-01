@@ -22,8 +22,8 @@ The entire thing is packed into a single HTML file for easy offline sharing.
 4. **Why plot by search pattern instead of by resturaunt?** Identifying, extracting and normalizing resturatunts from free text WhatsApp message requires more NLP/heuristics effort than I was willing to put in
 
 ## What's next?
-- Autocompletion in search textbox by existing strings
-- Tags UI for searching multiple resturaunts, instead of separating by commas
+- ~~Autocompletion in search textbox by existing strings~~ Thanks [@ofergoli](https://github.com/ofergoli)
+- ~~Tags UI for searching multiple resturaunts, instead of separating by commas~~ Thanks [@ofergoli](https://github.com/ofergoli)
 - Percentiles view
 - Mobile support
 - There are more possible improvements, but they will pend for user feedback 😇
