@@ -24,8 +24,9 @@ The entire thing is packed into a single HTML file for easy offline sharing.
 ## What's next?
 - ~~Autocompletion in search textbox by existing strings~~ Thanks [@ofergoli](https://github.com/ofergoli)
 - ~~Tags UI for searching multiple resturaunts, instead of separating by commas~~ Thanks [@ofergoli](https://github.com/ofergoli)
-- Percentiles view
+- ~~Percentiles view~~ Thanks again [@ofergoli](https://github.com/ofergoli)
 - Mobile support
+- Allow grouping multiple searches as a single resturaunt (or do it automagically)
 - There are more possible improvements, but they will pend for user feedback 😇
 
 ## That's awesome! How can I help?
