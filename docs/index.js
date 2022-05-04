@@ -12,7 +12,7 @@ function search(reports, patterns) {
   return patterns.map((pattern) => ({
     pattern,
     reports: reports.filter((report) =>
-      report.resturaunts.toLowerCase().includes(pattern.toLowerCase())
+      report.restaurants.toLowerCase().includes(pattern.toLowerCase())
     ),
   }));
 }
@@ -27,7 +27,7 @@ const resultToTrace = ({ pattern, reports }) => ({
   type: 'scatter',
   mode: 'markers',
   name: pattern || 'הכל',
-  text: reports.map((report) => report.resturaunts),
+  text: reports.map((report) => report.restaurants),
   x: reports.map((report) => report.date),
   y: reports.map((report) => '1970-01-01 ' + report.time),
 });
@@ -89,7 +89,7 @@ fetch('./build/reports.json')
     createDropDown(
       uniq(
         state.allReports
-          .map((report) => report.resturaunts.split(/\s+/))
+          .map((report) => report.restaurants.split(/\s+/))
           .flat()
           .map((word) => word.trim())
       )

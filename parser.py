@@ -52,7 +52,7 @@ def split_messages(text: str) -> Iterable[Message]:
 class ArrivalReport:
     date: dt.date
     time: dt.time
-    resturaunts: str
+    restaurants: str
 
 
 NOT_AN_ARRIVAL_REPORT_DENY_LIST = [
@@ -90,7 +90,7 @@ def parse_message(message: Message) -> list[ArrivalReport]:
     text = sanitize_message_text(message.text)
     if not text:
         return []
-    return [ArrivalReport(date=reported.date(), time=reported.time(), resturaunts=text)]
+    return [ArrivalReport(date=reported.date(), time=reported.time(), restaurants=text)]
 
 
 def write_reports_to_json(f: TextIO, reports: Iterable[ArrivalReport]) -> None:
@@ -99,7 +99,7 @@ def write_reports_to_json(f: TextIO, reports: Iterable[ArrivalReport]) -> None:
             {
                 "date": str(r.date),
                 "time": str(r.time),
-                "resturaunts": r.resturaunts,
+                "restaurants": r.restaurants,
             }
             for r in reports
         ],
