@@ -17,8 +17,24 @@ function search(reports, patterns) {
   }));
 }
 
+function patternsToQueryString(patterns) {
+  const params = new URLSearchParams();
+  patterns = patterns.filter((p) => p);
+  for (const pattern of patterns) {
+    params.append('q', pattern);
+  }
+  return params.toString();
+}
+function queryStringToPatterns(queryString) {
+  return new URLSearchParams(queryString).getAll('q');
+}
+
 function onSearch(patterns) {
-  const searchResults = search(state.allReports, patterns);
+  history.pushState(null, null, `?${patternsToQueryString(patterns)}`);
+  const searchResults = search(
+    state.allReports,
+    patterns.length ? patterns : ['']
+  );
   updateChart(searchResults);
   updateStats(searchResults);
 }
@@ -94,16 +110,13 @@ fetch('./build/reports.json')
           .map((word) => word.trim())
       )
     );
-    $('.js-example-basic-multiple').select2({
+
+    const initialPatterns = queryStringToPatterns(location.search);
+    $('#restaurant-dropdown').val(initialPatterns).trigger('change');
+    $('#restaurant-dropdown').select2({
       createTag: (tag) => ({ id: tag.term, text: tag.term, tag: true }),
       multiple: true,
       tags: true,
     });
-    Plotly.newPlot(
-      CHART,
-      [resultToTrace({ reports: state.allReports })],
-      LAYOUT,
-      CONFIG
-    );
-    onSearch(['']);
+    onSearch(initialPatterns);
   });
