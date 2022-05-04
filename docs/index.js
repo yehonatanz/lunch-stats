@@ -18,12 +18,9 @@ function search(reports, patterns) {
 }
 
 function patternsToQueryString(patterns) {
-  const params = new URLSearchParams();
-  patterns = patterns.filter((p) => p);
-  for (const pattern of patterns) {
-    params.append('q', pattern);
-  }
-  return params.toString();
+  return new URLSearchParams(
+    patterns.filter((p) => p).map((p) => ['q', p])
+  ).toString();
 }
 function queryStringToPatterns(queryString) {
   return new URLSearchParams(queryString).getAll('q');
